@@ -31,8 +31,7 @@ const config = {
                 ]
             },
             {
-                test: /\.scss$/,
-                exclude: [/node_modules/, /flow-typed/],
+                test: /\.s(a|c)ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",

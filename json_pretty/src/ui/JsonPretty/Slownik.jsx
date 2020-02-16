@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import Element from './Element';
 
 
@@ -39,9 +40,9 @@ class Slownik extends React.Component {
         return (
             <span>
                 {'{'}
-                <button onClick={() => this.setState({ zwiniety: true })}>
-                    -
-                </button>
+                <Button onClick={() => this.setState({ zwiniety: true })}>
+                  Ddsds -
+                </Button>
                 <br />{wiersze}
                 {'\u00A0'.repeat(zaglebienie * 4 - 4)}
                 {'}'}
