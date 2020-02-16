@@ -1,0 +1,67 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "allowImportExportEverywhere": true,
+    },
+    "env": {
+        "browser": true,
+        "mocha": true
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "flowtype"
+    ],
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/require-default-props": "off",
+        "react/jsx-max-props-per-line": [1, { "maximum": 3, "when": "multiline" }],
+        "max-len": ["error", 120],
+        "comma-dangle": ["error", { # http://eslint.org/docs/rules/comma-dangle
+            "arrays": "always-multiline",
+            "objects": "ignore",
+            "imports": "ignore",
+            "exports": "ignore",
+            "functions": "ignore",
+        }],
+        "object-curly-newline": ["error", {
+            "minProperties": 7,
+            "consistent": true
+        }],
+        "no-mixed-operators": "off",
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/no-static-element-interactions": ["error", {
+            handlers: [
+                "onClick",
+                "onMouseDown",
+                "onMouseUp",
+                "onKeyPress",
+                "onKeyDown",
+                "onKeyUp",
+            ]
+        }],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "to" ]
+         }],
+        "no-underscore-dangle": "off",
+        "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
+        "no-use-before-define": "error",
+        "flowtype/define-flow-type": 1,
+        "flowtype/use-flow-type": 1,
+        "onlyFilesWithFlowAnnotation": false,
+        "function-paren-newline": "off",
+        "quote-props": "off"
+    },
+    "settings": {
+      "import/ignore": [".scss$"],
+      "import/resolver": {
+          "babel-module": {
+              "root": ["./src"]
+          }
+      }
+    },
+    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:flowtype/recommended", "airbnb"]
+}

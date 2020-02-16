@@ -1,0 +1,9 @@
+[ignore]
+<PROJECT_ROOT>/webpack\.config\.js
+<PROJECT_ROOT>/index\.jsx
+<PROJECT_ROOT>/dist
+.*/test/
+[options]
+module.name_mapper='.*\(.scss\)' -> 'empty/object'
+module.name_mapper='^ui\(.*\)$' -> '<PROJECT_ROOT>/src/ui/\1'
+module.system.node.resolve_dirname=node_modules
