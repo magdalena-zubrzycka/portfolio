@@ -1,0 +1,70 @@
+{% extends 'outer4.html' %}
+{% block content %}
+
+
+
+<div class="container well" id="main_container" data-potrawy="{{ dostawcy }}">
+
+    <form action="/order.html" method="post">
+        {% for dostawca in dostawcy %}
+            <div class="row nazwa_dostawcy ">
+                <div class="col-sm-12 " data-nazwa="{{ dostawca.nazwa }}">
+               <h5>{{ dostawca.nazwa }}</h5>
+                </div>
+            </div>
+
+            {% for potrawa in dostawca.potrawy %}
+            <div class="row wybor-dania zebra" data-rodzaj="{{ potrawa.rodzaj }}" data-nazwa="{{ potrawa.nazwa }}" >
+                <div class="col-6 col-sm-2 col-lg-1  offset-lg-1" data-typ="{{ potrawa.rodzaj }}">
+                    <div class="form-check">
+                    <input class="form-check-input potrawy-wybor" name="potrawa_id" type="checkbox" data-typ="{{ potrawa.rodzaj }}" value="{{potrawa.potrawa_id}}" id="checkbox_{{potrawa.potrawa_id}}">
+
+                    {% if potrawa.rodzaj == 1 %}
+                    <span class="danie-opis" data-toggle="tooltip" data-placement="top" title="Wraz z zupą możesz zamówić danie">zupa</span>
+                    {% elif potrawa.rodzaj == 3 %}
+                    <span class="danie-opis" data-toggle="tooltip" data-placement="top" title="Do dania extra, nie można zamówić zupy ani dania" >extra</span>
+                    {% else %}
+                    <span class="danie-opis" data-toggle="tooltip" data-placement="top" title="Wraz z daniem możesz zamówić zupę">danie</span>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="col-6 col-sm-2 col-lg-1">
+                    {{ potrawa.cena }} zł
+                </div>
+                <div class="col-sm-8 col-lg-8">
+                    <span class="danie-opis">
+                        {{ potrawa.nazwa }}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+        <div class="text-center przycisk-zapisywania">
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModal">Zapisz</button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Zamów</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Czy chcesz zamówić obiad?
+                  <div class="potwierdzanie-zamowienia zebra"></div>
+                  <div class="potwierdzanie-zamowienia zebra"></div>
+                  <div class="potwierdzanie-zamowienia zebra"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                <button type="submit" class="btn btn-primary">Zamów</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

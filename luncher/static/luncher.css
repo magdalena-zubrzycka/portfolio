@@ -1,0 +1,42 @@
+
+#main_container {
+    margin-top: 80px;
+}
+
+.zebra:nth-of-type(odd) div {
+    background-color:#d2d2d2
+}
+.zebra:nth-of-type(even) div {
+    background: #FFFFFF;
+}
+
+.zebra:hover  div {
+    background-color:#bbb !important;
+}
+.rodzaj_potrawy {
+    font-weight: bold;
+    color: #222;
+    margin-bottom: -1px;
+    border-bottom: solid 1px;
+}
+.nazwa_dostawcy div {
+    background-color:#a4a4a4;
+    margin-top:15px;
+    padding-top:4px;
+    color:white;
+}
+
+.brak_wyboru {
+    color:#818181;
+
+}
+.logo{
+height: 28px;
+padding-right:8px;
+margin-top:-2px;
+}
+
+
+.przycisk-zapisywania {
+    padding-top:10px;
+}

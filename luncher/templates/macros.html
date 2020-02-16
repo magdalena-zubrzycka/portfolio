@@ -1,0 +1,19 @@
+{% macro flash_messages() %}
+<div class="alert-container" xmlns="http://www.w3.org/1999/html">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" xmlns="http://www.w3.org/1999/html">
+                    <button
+                            class="close"
+                            onclick="event.preventDefault();$(this).closest('.alert').hide()">×
+                    </button>
+                    <p
+                            style="margin: 0"
+                            class="flash-message text-{{ category }}">{{ message | safe}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+{% endmacro %}

@@ -1,0 +1,32 @@
+{% extends 'outer4.html' %}
+{% block content %}
+
+
+
+<div class="container well" id="main_container">
+
+        {% for zamowienie in zamowienia %}
+            <div class="row zebra">
+                <div class="col-xs-6 col-sm-4  col-lg-2 ">
+                   {{ zamowienie.data_dostawy.strftime("%Y-%m-%d %H:%M") }}
+                </div>
+                <div class="col-xs-6 col-sm-4  col-lg-2 ">
+                   {{ zamowienie.osoba.imie }} {{ zamowienie.osoba.nazwisko }}
+                </div>
+                <div class="col-sm-8 col-lg-4 ">
+                {% if zamowienie.danie %}
+                    <div class="rodzaj_potrawy">{{ zamowienie.danie.dostawca.nazwa }}:</div>
+                    {{ zamowienie.danie.nazwa }}
+                {% endif %}
+                </div>
+                <div class="col-sm-4 col-lg-2 ">
+                {% if zamowienie.zupa %}
+                    <div class="rodzaj_potrawy">(zupa) {{ zamowienie.zupa.dostawca.nazwa }}:</div>
+                    {{ zamowienie.zupa.nazwa }}
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+</div>
+{% endblock %}
